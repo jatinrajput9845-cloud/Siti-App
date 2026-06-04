@@ -1,10 +1,13 @@
-package in.sp.main;
+package in.sp.main.schedulers;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import in.sp.main.service.CustomerServiceManagement;
 
+/**
+ * A scheduler to send email.
+ */
 @Component
 public class ReminderScheduler {
 
