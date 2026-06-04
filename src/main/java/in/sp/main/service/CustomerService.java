@@ -118,7 +118,7 @@ public class CustomerService {
 		Customer savedCustomer = customerRepository.save(customer);
 
 		// CREATE CUSTOMER SERVICE
-		
+
 		in.sp.main.entity.CustomerService service = new in.sp.main.entity.CustomerService();
 
 		service.setCustomer(savedCustomer);
@@ -185,7 +185,7 @@ public class CustomerService {
 		return customerRepository.save(existingCustomer);
 	}
 
-	private void validateCustomer(CreateCustomerRequestDTO dto) {
+	private List<String> validateCustomer(CreateCustomerRequestDTO dto) {
 		if (dto.getUsername().length() < 5) {
 			throw new RuntimeException("Username can't be less than 5 letters");
 		}
@@ -193,5 +193,9 @@ public class CustomerService {
 			throw new RuntimeException("Username can't be more than 10 letters");
 		}
 
+        return List.of();
+    }
+	public List<String> getAllCustomerNames() {
+		return customerRepository.findAllCustomerNames();
 	}
 }

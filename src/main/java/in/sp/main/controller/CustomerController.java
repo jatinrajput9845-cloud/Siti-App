@@ -70,4 +70,8 @@ public class CustomerController {
 
 		return "Customer deleted successfully";
 	}
+	@GetMapping("/names")
+	public List<String> getAllCustomerNames() {
+		return customerService.getAllCustomerNames();
+}
 }
